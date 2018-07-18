@@ -1,21 +1,29 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
+        crossorigin="anonymous">
+
     <title>Itunes</title>
 </head>
 
 <body>
-    <h1>Buscador de Canciones iTunes</h1>
-    <div id="principal">
+    <div id="principal" class="container my-5 text-center">
+        <h1>Buscador de Canciones iTunes</h1>
+
         <label for="cancion">Introduce el término a buscar:</label>
         <input type="text" id="cancion">
-        <button type="submit" id="buscar">Buscar</button>
+        <button type="submit" id="buscar" class="btn btn-primary w-100">Buscar</button>
+
+        <div id="resultado" class="mt-5"></div>
     </div>
-    <div id="resultado"></div>
+
 
     <script src="js/app.js"></script>
 </body>

@@ -24,37 +24,45 @@ function buscarCancion(url) {
     fetch(url)
         .then(res => res.json())
         .then(data => {
-
-            let plantilla = '';
-
-            //Creamos la cabecera
-            plantilla += `<table>
-                            <tr>
-                                <td>Portada</td>
-                                <td>Grupo</td>
-                                <td>Título</td>
-                                <td>Precio</td>
-                                <td>Moneda</td>
-                                <td>Audio</td>
-                            </tr> `
-
-            //Recorremos los datos que nos devuelve el Json
-            data.results.forEach(cancion => {
-
-                //Rellenamos la plantilla
-                plantilla += `<tr>
-                                <td><img src="${cancion.artworkUrl100}"></img></td>
-                                <td>${cancion.artistName}</td>
-                                <td>${cancion.trackName}</td>
-                                <td>${cancion.trackPrice}</td>
-                                <td>${cancion.currency}</td>
-                                <td><audio src="${cancion.previewUrl}" controls></td>
-                              </tr>`;
-            });
-            plantilla += `</table>`;
-
-            //Agregamos la plantilla al html
-            document.getElementById('resultado').innerHTML = plantilla;
+            console.log(data); //Visualizamos los datos
+            pintarDatos(data); //Pintamos el resultado por pantalla
         })
         .catch(error => console.log(error));
+}
+
+function pintarDatos(data) {
+
+    let plantilla = '';
+
+    //Creamos la cabecera
+
+    plantilla += `<table class="table table-bordered table-striped table-dark">
+                    <thead>
+                        <tr>
+                            <td scope="col">Portada</td>
+                            <td scope="col">Grupo</td>
+                            <td scope="col">Álbum</td>
+                            <td scope="col">Canción</td>
+                            <td scope="col">Precio</td>
+                            <td scope="col">Audio</td>
+                        </tr> 
+                    </thead>`;
+
+    //Recorremos los datos que nos devuelve el Json
+    data.results.forEach(cancion => {
+
+        //Rellenamos la plantilla
+        plantilla += `<tr>
+                        <td><img src="${cancion.artworkUrl100}"></img></td>
+                        <td>${cancion.artistName}</td>
+                        <td>${cancion.collectionName}</td>
+                        <td>${cancion.trackName}</td>
+                        <td>${cancion.trackPrice} $</td>
+                        <td><audio src="${cancion.previewUrl}" controls></td>
+                      </tr>`;
+    });
+    plantilla += `</table>`;
+
+    //Agregamos la plantilla al html
+    document.getElementById('resultado').innerHTML = plantilla;
 }
