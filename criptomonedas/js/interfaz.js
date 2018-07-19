@@ -42,7 +42,7 @@ class Interfaz {
         //Desaparece mensaje de error tras 2 segundos
         setTimeout(() => {
             document.querySelector('.mensajes div').remove();
-        }, 2000);
+        }, 1500);
     }
 
     //Imprime por pantalla el resultado de la cotizacion
@@ -93,7 +93,7 @@ class Interfaz {
 
             // Ocultar el spinner
             document.querySelector('.spinner img').remove();
-        }, 2000);
+        }, 1500);
 
     }
 
